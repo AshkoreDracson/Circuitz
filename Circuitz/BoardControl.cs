@@ -397,6 +397,9 @@ namespace Circuitz
                             case "Adder":
                                 Board.AddNode(new Adder(4) { Position = RelativeLocation });
                                 break;
+                            case "SR Latch":
+                                Board.AddNode(new SRLatch { Position = RelativeLocation });
+                                break;
                         }
                         SelectNode(Board.Nodes.LastOrDefault());
                     }
