@@ -13,7 +13,7 @@ namespace Circuitz.Nodes
         {
             set => Inputs = new bool[value];
         }
-        public override Image Icon => Resources.Node_OR;
+        public override Image Icon => Resources.Node_NOR;
 
         public Nor(int inCount) : base(inCount, 1)
         {

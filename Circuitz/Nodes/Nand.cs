@@ -13,7 +13,7 @@ namespace Circuitz.Nodes
         {
             set => Inputs = new bool[value];
         }
-        public override Image Icon => Resources.Node_AND;
+        public override Image Icon => Resources.Node_NAND;
 
         public Nand(int inCount) : base(inCount, 1)
         {

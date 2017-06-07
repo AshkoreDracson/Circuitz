@@ -114,5 +114,11 @@
   <ItemGroup>
     <None Include="Resources\Node_Buffer.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Node_NAND.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Node_NOR.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

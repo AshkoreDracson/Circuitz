@@ -27,17 +27,17 @@ namespace Circuitz
         public PropertyGrid LinkedPropertyGrid { get; set; }
 
         public Node SelectedNode { get; private set; }
-        private Point SelectedNodeOffset;
+        Point SelectedNodeOffset;
 
-        private Point PreviousMouseLocation;
-        private Point MouseDelta;
+        Point PreviousMouseLocation;
+        Point MouseDelta;
 
-        private bool Wiring;
-        private Node WiringCurrentNode;
-        private Node WiringTargetNode;
-        private int? WiringCurrentNodeOutput;
-        private int? WiringTargetNodeInput;
-        private Point WiringCurrentPoint;
+        bool Wiring;
+        Node WiringCurrentNode;
+        Node WiringTargetNode;
+        int? WiringCurrentNodeOutput;
+        int? WiringTargetNodeInput;
+        Point WiringCurrentPoint;
 
         public BoardControl()
         {
@@ -46,10 +46,11 @@ namespace Circuitz
 
         #region Pen & Brushes Properties & Stuff
 
-        private StringFormat TextFormat => new StringFormat { LineAlignment = StringAlignment.Center, Alignment = StringAlignment.Center };
+        StringFormat TextFormat => new StringFormat { LineAlignment = StringAlignment.Center, Alignment = StringAlignment.Center };
 
-        private SolidBrush _textBrush;
-        private SolidBrush TextBrush
+        SolidBrush _textBrush;
+
+        SolidBrush TextBrush
         {
             get
             {
@@ -59,8 +60,9 @@ namespace Circuitz
             }
         }
 
-        private SolidBrush _nodeBrush;
-        private SolidBrush NodeBrush
+        SolidBrush _nodeBrush;
+
+        SolidBrush NodeBrush
         {
             get
             {
@@ -69,8 +71,10 @@ namespace Circuitz
                 return _nodeBrush;
             }
         }
-        private SolidBrush _nodeSelectedBrush;
-        private SolidBrush NodeSelectedBrush
+
+        SolidBrush _nodeSelectedBrush;
+
+        SolidBrush NodeSelectedBrush
         {
             get
             {
@@ -80,8 +84,9 @@ namespace Circuitz
             }
         }
 
-        private Pen _nodePen;
-        private Pen NodePen
+        Pen _nodePen;
+
+        Pen NodePen
         {
             get
             {
@@ -91,8 +96,9 @@ namespace Circuitz
             }
         }
 
-        private Pen _outlinePen;
-        private Pen OutlinePen
+        Pen _outlinePen;
+
+        Pen OutlinePen
         {
             get
             {
@@ -102,8 +108,9 @@ namespace Circuitz
             }
         }
 
-        private Pen _gridPen;
-        private Pen GridPen
+        Pen _gridPen;
+
+        Pen GridPen
         {
             get
             {
@@ -113,8 +120,9 @@ namespace Circuitz
             }
         }
 
-        private Pen _gridBigPen;
-        private Pen GridBigPen
+        Pen _gridBigPen;
+
+        Pen GridBigPen
         {
             get
             {
@@ -124,8 +132,9 @@ namespace Circuitz
             }
         }
 
-        private Pen _wireOffPen;
-        private Pen WireOffPen
+        Pen _wireOffPen;
+
+        Pen WireOffPen
         {
             get
             {
@@ -135,8 +144,9 @@ namespace Circuitz
             }
         }
 
-        private Pen _wireOnPen;
-        private Pen WireOnPen
+        Pen _wireOnPen;
+
+        Pen WireOnPen
         {
             get
             {
@@ -146,8 +156,9 @@ namespace Circuitz
             }
         }
 
-        private Pen _branchOnPen;
-        private Pen BranchOnPen
+        Pen _branchOnPen;
+
+        Pen BranchOnPen
         {
             get
             {
@@ -157,8 +168,9 @@ namespace Circuitz
             }
         }
 
-        private Pen _branchOffPen;
-        private Pen BranchOffPen
+        Pen _branchOffPen;
+
+        Pen BranchOffPen
         {
             get
             {

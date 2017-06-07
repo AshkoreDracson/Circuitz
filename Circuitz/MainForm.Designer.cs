@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Basic Gates", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Constant");
             System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("AND Gate");
             System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("OR Gate");
@@ -39,6 +38,7 @@
             System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("Timer");
             System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("Adder");
             System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("NAND Gate");
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Basic Gates", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("NOR Gate");
             this.boardControl = new Circuitz.BoardControl();
             this.boardMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -112,11 +112,10 @@
             // 
             this.gateList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.gateList.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gateList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             listViewGroup1.Header = "Basic Gates";
             listViewGroup1.Name = "basicGroup";
-            this.gateList.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1});
-            this.gateList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             listViewItem9.Group = listViewGroup1;
             listViewItem10.Group = listViewGroup1;
             this.gateList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
@@ -135,7 +134,7 @@
             this.gateList.Size = new System.Drawing.Size(243, 185);
             this.gateList.TabIndex = 4;
             this.gateList.UseCompatibleStateImageBehavior = false;
-            this.gateList.View = System.Windows.Forms.View.SmallIcon;
+            this.gateList.View = System.Windows.Forms.View.List;
             // 
             // gateProperties
             // 
