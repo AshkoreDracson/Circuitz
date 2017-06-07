@@ -58,6 +58,7 @@
     <Compile Include="Nodes\Nor.cs" />
     <Compile Include="Nodes\SRLatch.cs" />
     <Compile Include="Nodes\Timer.cs" />
+    <Compile Include="Nodes\Xnor.cs" />
     <Compile Include="Nodes\Xor.cs" />
     <Compile Include="Nodes\Or.cs" />
     <Compile Include="Nodes\And.cs" />
@@ -123,6 +124,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Node_SRLatch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Node_XNOR.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

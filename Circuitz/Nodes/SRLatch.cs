@@ -5,6 +5,7 @@ namespace Circuitz.Nodes
 {
     public class SRLatch : Node
     {
+        public override string Name => "SR Latch";
         public override Image Icon => Resources.Node_SRLatch;
 
         public SRLatch() : base(2, 2) { }

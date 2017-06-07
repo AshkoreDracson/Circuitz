@@ -388,6 +388,9 @@ namespace Circuitz
                             case "NOR Gate":
                                 Board.AddNode(new Nor(2) { Position = RelativeLocation });
                                 break;
+                            case "XNOR Gate":
+                                Board.AddNode(new Xnor(2) { Position = RelativeLocation });
+                                break;
                             case "Buffer":
                                 Board.AddNode(new Buffer { Position = RelativeLocation });
                                 break;

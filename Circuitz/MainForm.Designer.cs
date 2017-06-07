@@ -36,10 +36,11 @@
             System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("NOT Gate");
             System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("NAND Gate");
             System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("NOR Gate");
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("Buffer");
-            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("Timer");
-            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("Adder");
-            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("SR Latch");
+            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("XNOR Gate");
+            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("Buffer");
+            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("Timer");
+            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("Adder");
+            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("SR Latch");
             this.boardControl = new Circuitz.BoardControl();
             this.boardMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.deleteNodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -125,7 +126,8 @@
             listViewItem8,
             listViewItem9,
             listViewItem10,
-            listViewItem11});
+            listViewItem11,
+            listViewItem12});
             this.gateList.Location = new System.Drawing.Point(12, 90);
             this.gateList.Name = "gateList";
             this.gateList.Size = new System.Drawing.Size(243, 185);

@@ -153,6 +153,16 @@ namespace Circuitz.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Node_XNOR {
+            get {
+                object obj = ResourceManager.GetObject("Node_XNOR", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Node_XOR {
             get {
                 object obj = ResourceManager.GetObject("Node_XOR", resourceCulture);
