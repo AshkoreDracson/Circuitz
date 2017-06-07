@@ -23,7 +23,7 @@ namespace Circuitz
         public bool GridSnapping => LinkedGridSnapCheckBox.Checked;
 
         public CheckBox LinkedGridSnapCheckBox { get; set; }
-        public ListView LinkedListView { get; set; }
+        public ListBox LinkedListBox { get; set; }
         public PropertyGrid LinkedPropertyGrid { get; set; }
 
         public Node SelectedNode { get; private set; }
@@ -363,9 +363,9 @@ namespace Circuitz
 
                 if (SelectedNode == null)
                 {
-                    if (LinkedListView != null && LinkedListView.SelectedItems.Count == 1)
+                    if (LinkedListBox != null && LinkedListBox.SelectedItems.Count == 1)
                     {
-                        switch (LinkedListView.SelectedItems[0].Text)
+                        switch (LinkedListBox.SelectedItems[0])
                         {
                             case "Constant":
                                 Board.AddNode(new Constant { Position = RelativeLocation });
@@ -412,6 +412,7 @@ namespace Circuitz
             else if (e.Button == MouseButtons.Right)
             {
                 SelectNode(Board.Nodes.FirstOrDefault(node => node.Intersects(RelativeLocation)));
+                Invalidate();
             }
         }
 

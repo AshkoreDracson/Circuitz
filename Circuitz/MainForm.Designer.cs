@@ -29,29 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Constant");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("AND Gate");
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("OR Gate");
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("XOR Gate");
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("NOT Gate");
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("NAND Gate");
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("NOR Gate");
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("XNOR Gate");
-            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("Buffer");
-            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("Timer");
-            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("Adder");
-            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("SR Latch");
             this.boardControl = new Circuitz.BoardControl();
             this.boardMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.deleteNodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridsnapCB = new System.Windows.Forms.CheckBox();
-            this.gateList = new System.Windows.Forms.ListView();
             this.gateProperties = new System.Windows.Forms.PropertyGrid();
             this.stepBTN = new System.Windows.Forms.Button();
             this.autoStepBTN = new System.Windows.Forms.Button();
             this.timeField = new System.Windows.Forms.NumericUpDown();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.gateList = new System.Windows.Forms.ListBox();
             this.boardMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.timeField)).BeginInit();
             this.statusStrip.SuspendLayout();
@@ -68,7 +56,7 @@
             this.boardControl.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.boardControl.GridSize = 16;
             this.boardControl.LinkedGridSnapCheckBox = this.gridsnapCB;
-            this.boardControl.LinkedListView = this.gateList;
+            this.boardControl.LinkedListBox = this.gateList;
             this.boardControl.LinkedPropertyGrid = this.gateProperties;
             this.boardControl.Location = new System.Drawing.Point(263, 12);
             this.boardControl.Margin = new System.Windows.Forms.Padding(0);
@@ -108,32 +96,6 @@
             this.gridsnapCB.TabIndex = 6;
             this.gridsnapCB.Text = "Snap to grid?";
             this.gridsnapCB.UseVisualStyleBackColor = true;
-            // 
-            // gateList
-            // 
-            this.gateList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.gateList.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gateList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.gateList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3,
-            listViewItem4,
-            listViewItem5,
-            listViewItem6,
-            listViewItem7,
-            listViewItem8,
-            listViewItem9,
-            listViewItem10,
-            listViewItem11,
-            listViewItem12});
-            this.gateList.Location = new System.Drawing.Point(12, 90);
-            this.gateList.Name = "gateList";
-            this.gateList.Size = new System.Drawing.Size(243, 185);
-            this.gateList.TabIndex = 4;
-            this.gateList.UseCompatibleStateImageBehavior = false;
-            this.gateList.View = System.Windows.Forms.View.List;
             // 
             // gateProperties
             // 
@@ -198,15 +160,41 @@
             this.statusLabel.Size = new System.Drawing.Size(16, 17);
             this.statusLabel.Text = "...";
             // 
+            // gateList
+            // 
+            this.gateList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.gateList.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gateList.FormattingEnabled = true;
+            this.gateList.IntegralHeight = false;
+            this.gateList.ItemHeight = 18;
+            this.gateList.Items.AddRange(new object[] {
+            "Constant",
+            "AND Gate",
+            "OR Gate",
+            "XOR Gate",
+            "Buffer Gate",
+            "NOT Gate",
+            "NAND Gate",
+            "NOR Gate",
+            "XNOR Gate",
+            "Adder",
+            "SR Latch",
+            "Timer"});
+            this.gateList.Location = new System.Drawing.Point(12, 90);
+            this.gateList.Name = "gateList";
+            this.gateList.Size = new System.Drawing.Size(243, 185);
+            this.gateList.TabIndex = 8;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 505);
+            this.Controls.Add(this.gateList);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.gridsnapCB);
             this.Controls.Add(this.gateProperties);
-            this.Controls.Add(this.gateList);
             this.Controls.Add(this.timeField);
             this.Controls.Add(this.autoStepBTN);
             this.Controls.Add(this.stepBTN);
@@ -229,13 +217,13 @@
         private System.Windows.Forms.Button stepBTN;
         private System.Windows.Forms.Button autoStepBTN;
         private System.Windows.Forms.NumericUpDown timeField;
-        private System.Windows.Forms.ListView gateList;
         private System.Windows.Forms.PropertyGrid gateProperties;
         private System.Windows.Forms.ContextMenuStrip boardMenu;
         private System.Windows.Forms.ToolStripMenuItem deleteNodeToolStripMenuItem;
         private System.Windows.Forms.CheckBox gridsnapCB;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel statusLabel;
+        private System.Windows.Forms.ListBox gateList;
     }
 }
 

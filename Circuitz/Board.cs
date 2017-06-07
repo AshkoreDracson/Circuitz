@@ -57,6 +57,7 @@ namespace Circuitz
 
         public void Wire(Node a, Node b, int inIndex, int outIndex)
         {
+            Wires.RemoveAll(wire => wire.Output == b && wire.OutputIndex == outIndex);
             Wires.Add(new Wire(a, b, inIndex, outIndex) { Board = this });
         }
 

@@ -8,7 +8,10 @@ namespace Circuitz.Nodes
         public override string Name => "SR Latch";
         public override Image Icon => Resources.Node_SRLatch;
 
-        public SRLatch() : base(2, 2) { }
+        public SRLatch() : base(2, 2)
+        {
+            Update();
+        }
 
         public override void Update()
         {
