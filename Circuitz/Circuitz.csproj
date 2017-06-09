@@ -54,6 +54,7 @@
     <Compile Include="Nodes\Adder.cs" />
     <Compile Include="Nodes\Buffer.cs" />
     <Compile Include="Nodes\Nand.cs" />
+    <Compile Include="Nodes\NodeIdentifier.cs" />
     <Compile Include="Nodes\Not.cs" />
     <Compile Include="Nodes\Nor.cs" />
     <Compile Include="Nodes\SRLatch.cs" />
@@ -111,9 +112,6 @@
     <None Include="Resources\Node_NOT.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Node_Timer.bmp" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Node_Buffer.png" />
   </ItemGroup>
   <ItemGroup>
@@ -127,6 +125,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Node_XNOR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Node_Timer.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

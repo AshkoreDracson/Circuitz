@@ -8,6 +8,7 @@ namespace Circuitz.Nodes
     public class Nor : Node
     {
         public override string Name => "NOR";
+        public override NodeIdentifier Type => NodeIdentifier.Nor;
 
         public override int InputCount
         {

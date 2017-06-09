@@ -6,6 +6,7 @@ namespace Circuitz.Nodes
     public class Adder : Node
     {
         public override string Name => "Adder";
+        public override NodeIdentifier Type => NodeIdentifier.Adder;
 
         public override int InputCount
         {

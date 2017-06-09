@@ -6,8 +6,9 @@ namespace Circuitz.Nodes
     public class Timer : Node
     {
         public override string Name => "Timer";
+        public override NodeIdentifier Type => NodeIdentifier.Timer;
 
-        private uint _interval = 1;
+        uint _interval = 1;
         public uint Interval
         {
             get => _interval;
@@ -18,7 +19,7 @@ namespace Circuitz.Nodes
             }
         }
 
-        private bool _value;
+        bool _value;
         public bool Value
         {
             get => _value;
@@ -31,7 +32,7 @@ namespace Circuitz.Nodes
 
         public override Image Icon => Resources.Node_Timer;
 
-        private uint intervalLeft;
+        uint intervalLeft;
 
         public Timer() : base(0, 1)
         {

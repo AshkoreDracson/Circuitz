@@ -6,8 +6,9 @@ namespace Circuitz.Nodes
     public class Constant : Node
     {
         public override string Name => "Constant";
+        public override NodeIdentifier Type => NodeIdentifier.Constant;
 
-        private bool _value;
+        bool _value;
         public bool Value
         {
             get => _value;

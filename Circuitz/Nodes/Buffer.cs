@@ -6,6 +6,7 @@ namespace Circuitz.Nodes
     public class Buffer : Node
     {
         public override string Name => "Buffer";
+        public override NodeIdentifier Type => NodeIdentifier.Buffer;
 
         public override Image Icon => Resources.Node_Buffer;
 

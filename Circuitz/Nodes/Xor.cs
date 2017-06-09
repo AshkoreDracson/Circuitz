@@ -8,6 +8,7 @@ namespace Circuitz.Nodes
     public class Xor : Node
     {
         public override string Name => "XOR";
+        public override NodeIdentifier Type => NodeIdentifier.Xor;
 
         public override int InputCount
         {

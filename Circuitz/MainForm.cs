@@ -1,12 +1,13 @@
 ﻿using Elementary;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Circuitz
 {
     public partial class MainForm : Form
     {
-        private readonly Timer timer = new Timer();
+        readonly Timer timer = new Timer();
 
         public MainForm()
         {
@@ -18,62 +19,90 @@ namespace Circuitz
             UpdateStatusLabel();
         }
 
-        private void OnSizeChanged(object sender, EventArgs e)
+        // FUNCTIONS
+        void Step()
+        {
+            boardControl.Board.Step();
+            boardControl.Refresh();
+        }
+        void UpdateStatusLabel()
+        {
+            statusLabel.Text = $"{(timer.Enabled ? "Playing" : "Stopped")} | Step count: {boardControl.Board.StepCount}, Update count: {boardControl.Board.UpdateCount}";
+        }
+
+        // EVENTS
+
+        void OnSizeChanged(object sender, EventArgs e)
         {
             boardControl.Invalidate();
         }
 
-        private void GateProperties_PropertyValueChanged(object s, PropertyValueChangedEventArgs e)
+        void GateProperties_PropertyValueChanged(object s, PropertyValueChangedEventArgs e)
         {
             boardControl.Board.UpdateWires();
             boardControl.Invalidate();
         }
 
-        private void stepBTN_Click(object sender, EventArgs e)
+        void stepBTN_Click(object sender, EventArgs e)
         {
             Step();
         }
 
-        private void autoStepBTN_Click(object sender, EventArgs e)
+        void autoStepBTN_Click(object sender, EventArgs e)
         {
             timer.Enabled = !timer.Enabled;
+
+            autoStepBTN.Text = timer.Enabled ? "Stop Auto-step" : "Auto-step";
+            timeField.Enabled = !timer.Enabled;
+            stepBTN.Enabled = !timer.Enabled;
         }
 
-        private void timeField_ValueChanged(object sender, EventArgs e)
+        void timeField_ValueChanged(object sender, EventArgs e)
         {
             timer.Interval = (int)timeField.Value.Clamp(1, 10000);
         }
 
-        private void Timer_Tick(object sender, EventArgs e)
+        void Timer_Tick(object sender, EventArgs e)
         {
             Step();
         }
 
-        private void Step()
-        {
-            boardControl.Board.Step();
-            boardControl.Refresh();
-        }
-
-        private void OnBoardMenuOpening(object sender, System.ComponentModel.CancelEventArgs e)
+        void OnBoardMenuOpening(object sender, System.ComponentModel.CancelEventArgs e)
         {
             deleteNodeToolStripMenuItem.Enabled = boardControl.SelectedNode != null;
         }
 
-        private void deleteNodeToolStripMenuItem_Click(object sender, EventArgs e)
+        void deleteNodeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (boardControl.SelectedNode != null)
                 boardControl.RemoveNode(boardControl.SelectedNode);
         }
 
-        private void UpdateStatusLabel()
-        {
-            statusLabel.Text = $"{(timer.Enabled ? "Playing" : "Stopped")} | Step count: {boardControl.Board.StepCount}, Update count: {boardControl.Board.UpdateCount}";
-        }
-
-        private void OnBoardControlRepainting(object sender, PaintEventArgs e)
+        void OnBoardControlRepainting(object sender, PaintEventArgs e)
         {
             UpdateStatusLabel();
+        }
+
+        void loadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog { CheckPathExists = true, CheckFileExists = true, Filter = "Circuitz File|*.cir" })
+            {
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    boardControl.Board.Load(ofd.FileName);
+                    boardControl.Board.UpdateWires();
+                    boardControl.ViewPoint = boardControl.Board.Nodes[0]?.Position ?? Point.Empty;
+                    boardControl.Invalidate();
+                }
+            }
+        }
+        void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog sfd = new SaveFileDialog { CheckPathExists = true, Filter = "Circuitz File|*.cir" })
+            {
+                if (sfd.ShowDialog() == DialogResult.OK)
+                    boardControl.Board.Save(sfd.FileName);
+            }
         }
     }
 }

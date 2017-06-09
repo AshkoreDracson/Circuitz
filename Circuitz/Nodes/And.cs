@@ -8,6 +8,7 @@ namespace Circuitz.Nodes
     public class And : Node
     {
         public override string Name => "AND";
+        public override NodeIdentifier Type => NodeIdentifier.And;
 
         public override int InputCount
         {

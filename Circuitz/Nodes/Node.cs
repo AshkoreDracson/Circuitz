@@ -8,12 +8,14 @@ namespace Circuitz.Nodes
     [DisplayName("Node")]
     public abstract class Node
     {
-        private static uint _curID;
+        static uint _curID;
         [Category("Base")]
         public uint ID { get; }
 
         [Category("Base")]
         public virtual string Name => "Node";
+        [Browsable(false)]
+        public virtual NodeIdentifier Type => NodeIdentifier.None;
 
         [Browsable(false)]
         public Board Board { get; set; }

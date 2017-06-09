@@ -8,6 +8,7 @@ namespace Circuitz.Nodes
     public class Xnor : Node
     {
         public override string Name => "XNOR";
+        public override NodeIdentifier Type => NodeIdentifier.Xnor;
 
         public override int InputCount
         {

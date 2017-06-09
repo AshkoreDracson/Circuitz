@@ -8,6 +8,7 @@ namespace Circuitz.Nodes
     public class Nand : Node
     {
         public override string Name => "NAND";
+        public override NodeIdentifier Type => NodeIdentifier.Nand;
 
         public override int InputCount
         {

@@ -8,6 +8,7 @@ namespace Circuitz.Nodes
     public class Or : Node
     {
         public override string Name => "OR";
+        public override NodeIdentifier Type => NodeIdentifier.Or;
 
         public override int InputCount
         {
