@@ -83,6 +83,12 @@ namespace Circuitz
             UpdateStatusLabel();
         }
 
+        void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            boardControl.Board.Reset();
+            boardControl.ViewPoint = Point.Empty;
+            boardControl.Invalidate();
+        }
         void loadToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog ofd = new OpenFileDialog { CheckPathExists = true, CheckFileExists = true, Filter = "Circuitz File|*.cir" })

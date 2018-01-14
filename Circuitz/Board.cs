@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -128,8 +127,6 @@ namespace Circuitz
                             uint interval = br.ReadUInt32();
                             AddNode(new Timer { Position = pos, Interval = interval });
                             break;
-                        default:
-                            throw new ArgumentOutOfRangeException();
                     }
                 }
 
